@@ -4,5 +4,5 @@ endif
 
 let g:loaded_maked = 1
 
-command! -nargs=0 Maked lua require("maked").dispay_make_commands()
+command! -nargs=0 Maked lua require("maked").display_make_commands()
 

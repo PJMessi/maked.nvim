@@ -100,7 +100,7 @@ local function extract_makecmds(makefile_path)
     return make_cmds
 end
 
-M.dispay_make_commands = function()
+M.display_make_commands = function()
     local makefile_path = "./Makefile"
     local make_cmds = extract_makecmds(makefile_path)
     toggle_telescope(make_cmds, makefile_path)
