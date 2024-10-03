@@ -1,4 +1,4 @@
-local maked = require("hanger.maked")
+local maked = require("maked.dispay_make_commands")
 
 local M = {}
 
