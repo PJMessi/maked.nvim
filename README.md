@@ -4,6 +4,9 @@ Neovim plugin to browse through the Makefile commands and execute them directly 
 ## Fun Project Disclaimer
 `maked.nvim` is just a fun project. It's an experiment in Neovim plugin development and Makefile interaction.
 
+## Preview
+![ezgif-2-addcb55c90](https://github.com/user-attachments/assets/45f15012-0d97-4993-97e2-db6dcd35783a)
+
 ## Prerequisites
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Used for the fuzzy finding interface to display and select Makefile targets
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) - Required by Telescope
