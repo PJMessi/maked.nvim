@@ -41,28 +41,16 @@ local function create_previewer(make_file_path)
                     vim.api.nvim_buf_clear_namespace(bufnr, -1, 0, -1)
 
                     -- Find the line that matches the selected command
-                    local highlight_line = nil
                     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
                     for i, line in ipairs(lines) do
                         -- Match exactly at the start of the line that is followed by ':'
                         if vim.fn.match(line, "^" .. cmd_name) ~= -1 then
+                            -- Scroll to the matching line
+                            vim.api.nvim_win_set_cursor(self.state.winid, { i, 0 })
+
                             -- Highlight the matching line
                             vim.api.nvim_buf_add_highlight(bufnr, -1, "Search", i - 1, 0, -1)
-                            highlight_line = i - 1
                             break
-                        end
-                    end
-
-                    if highlight_line then
-                        local win = vim.fn.bufwinid(bufnr)
-                        if win ~= -1 then
-                            local current_line = vim.fn.line('w0', win)
-                            local window_height = vim.api.nvim_win_get_height(win)
-                            if highlight_line < current_line or highlight_line >= current_line + window_height then
-                                -- Center the view on the highlighted line
-                                vim.api.nvim_win_set_cursor(win, { highlight_line + 1, 0 })
-                                vim.cmd('normal! zz')
-                            end
                         end
                     end
                 end
